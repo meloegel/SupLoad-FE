@@ -4,6 +4,7 @@ import loginSchema from "../validation/LoginSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import Button from "../common/Button";
 
 const initialFormValues = {
   username: "",
@@ -94,8 +95,15 @@ export default function Login(): JSX.Element {
           )}
         </div>
       </div>
-      <div>
-        <button>Login</button>
+      <div className="flex justify-evenly p-6">
+        <Button text="Login" className="text-white" onClick={() => {}} />
+        <Button
+          text="Register"
+          className="text-white"
+          onClick={() => {
+            navigate("/register");
+          }}
+        />
       </div>
     </form>
   );
