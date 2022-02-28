@@ -19,7 +19,18 @@ export default function useFetch<T>(): Result<T> {
   const request = useCallback(
     async (url: string, options: Options) => {
       const response = await fetch(url, options);
-      setResult(response.ok ? await response.json() : null);
+      let responseJson;
+      try {
+        const responseText = await response.text();
+        if (responseText.length === 0) {
+          responseJson = null;
+        } else {
+          responseJson = JSON.parse(responseText);
+        }
+      } catch (error) {
+        console.log(`Error parsing response from request to ${url}`, error);
+      }
+      setResult(responseJson)
     },
     [setResult]
   );

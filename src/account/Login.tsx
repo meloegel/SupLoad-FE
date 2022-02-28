@@ -35,17 +35,13 @@ export default function Login(): JSX.Element {
 
   const onSubmit = () => {
     const body = {
-      grant_type: "password",
       username: formValues.username,
       password: formValues.password,
     };
     const headers = {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+      "Content-Type": "application/json"
     };
-    const grant_type = `?grant_type=password&username=${formValues.username}&password=${formValues.password}`;
-
-    request(`http://localhost:2019/login${grant_type}`, {
+    request(`http://localhost:8080/login`, {
       method: "POST",
       body: JSON.stringify(body),
       headers: headers,
@@ -55,7 +51,7 @@ export default function Login(): JSX.Element {
   useEffect(() => {
     if (data) {
       localStorage.setItem("username", `${formValues.username}`);
-      localStorage.setItem("token", `Bearer ${data.access_token}`);
+      localStorage.setItem("token", `Bearer ${data}`);
       navigate("/home");
     }
   }, [data, navigate, formValues]);

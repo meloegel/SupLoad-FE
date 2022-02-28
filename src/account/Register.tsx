@@ -44,7 +44,7 @@ export default function Register(): JSX.Element {
       "Content-Type": "application/json",
       Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
     };
-    request(`http://localhost:2019/user`, {
+    request(`http://localhost:8080/user`, {
       method: "POST",
       body: JSON.stringify(body),
       headers: headers,
