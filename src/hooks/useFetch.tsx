@@ -11,14 +11,18 @@ type Headers = {
   [key: string]: string;
 };
 
-type Result<T> = [(url: string, options: Options) => Promise<void>, T | null];
+export type Status = "NotAsked" | "Pending" | "Resolved" | "Rejected" | "Unauthorized";
+
+type Result<T> = [(url: string, options: Options) => Promise<void>, T | null, number | null];
 
 export default function useFetch<T>(): Result<T> {
   const [result, setResult] = useMountedState<T | null>(null);
+  const [statusCode, setStatusCode] = useMountedState<number | null>(null);
 
   const request = useCallback(
     async (url: string, options: Options) => {
       const response = await fetch(url, options);
+      setStatusCode(response.status);
       let responseJson;
       try {
         const responseText = await response.text();
@@ -32,7 +36,7 @@ export default function useFetch<T>(): Result<T> {
       }
       setResult(responseJson)
     },
-    [setResult]
+    [setResult, setStatusCode]
   );
-  return [request, result];
+  return [request, result, statusCode];
 }

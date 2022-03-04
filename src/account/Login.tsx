@@ -14,7 +14,8 @@ const initialFormValues = {
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [request, data] = useFetch<any>();
+  const [request, data, statusCode] = useFetch<any>();
+  const [hideError, setHideError] = useState(false)
   const {
     register,
     handleSubmit,
@@ -39,7 +40,7 @@ export default function Login(): JSX.Element {
       password: formValues.password,
     };
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     };
     request(`http://localhost:8080/login`, {
       method: "POST",
@@ -49,12 +50,15 @@ export default function Login(): JSX.Element {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data && statusCode === 200) {
       localStorage.setItem("username", `${formValues.username}`);
       localStorage.setItem("token", `Bearer ${data}`);
       navigate("/home");
     }
-  }, [data, navigate, formValues]);
+    if (statusCode === 400){
+      setHideError(true)
+    }
+  }, [data, navigate, formValues, statusCode]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 m-auto p-4">
@@ -90,6 +94,9 @@ export default function Login(): JSX.Element {
             </p>
           )}
         </div>
+        <p className={`text-red-600 text-xs mx-4 ${!hideError ? "hidden" : "" } `}>
+          Username and password did not match
+        </p>
       </div>
       <div className="flex justify-evenly p-6">
         <Button text="Login" className="text-white" onClick={() => {}} />
