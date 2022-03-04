@@ -3,7 +3,7 @@ import Contact from "../common/Contact";
 export default function Home(): JSX.Element {
   return (
     <div>
-      <h1>Home</h1>
+      <h1 className="p-4">Home</h1>
       <Contact 
       firstname="FirstName"
       lastname="LastName"
