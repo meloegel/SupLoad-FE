@@ -10,11 +10,9 @@ export default function Contact(props: ContactType): JSX.Element {
         <h3>Phone: {props.phone}</h3>
       </div>
       <div>
-        <h3>Address</h3>
-        <h4>Street: {props.street}</h4>
-        <h4>City: {props.city}</h4>
-        <h4>State: {props.state}</h4>
-        <h4>Zip: {props.zip}</h4>
+        <h3>Address: </h3>
+        <h4>{props.street}</h4>
+        <h4>{props.city} {props.state} {props.zip}</h4>
       </div>
     </div>
   );
