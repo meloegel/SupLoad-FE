@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Contact from "../common/Contact";
 import contactSchema from "../validation/ContactSchema";
@@ -58,6 +58,15 @@ export default function AddContact(): JSX.Element {
       headers: headers,
     });
   };
+
+  useEffect(() => {
+    if (statusCode === 400) {
+      console.log("Oh No!");
+    }
+    if (data) {
+      console.log("Success");
+    }
+  }, [data, statusCode]);
 
   return (
     <div>
@@ -144,9 +153,7 @@ export default function AddContact(): JSX.Element {
               type="text"
             />
             {errors.city && (
-              <p className="text-red-600 text-xs m-2">
-                {errors.city?.message}
-              </p>
+              <p className="text-red-600 text-xs m-2">{errors.city?.message}</p>
             )}
           </div>
           <div className="p-2">
@@ -174,9 +181,7 @@ export default function AddContact(): JSX.Element {
               type="text"
             />
             {errors.zip && (
-              <p className="text-red-600 text-xs m-2">
-                {errors.zip?.message}
-              </p>
+              <p className="text-red-600 text-xs m-2">{errors.zip?.message}</p>
             )}
           </div>
           <div className="p-2">
