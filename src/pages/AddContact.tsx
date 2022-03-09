@@ -129,6 +129,21 @@ export default function AddContact(): JSX.Element {
             )}
           </div>
           <div className="p-2">
+            <label>Phone Number</label>
+            <input
+              {...register("phone")}
+              value={formValues.phone}
+              onChange={onInputChange}
+              name="phone"
+              type="text"
+            />
+            {errors.phone && (
+              <p className="text-red-600 text-xs m-2">
+                {errors.phone?.message}
+              </p>
+            )}
+          </div>
+          <div className="p-2">
             <label>Street</label>
             <input
               {...register("street")}
@@ -184,21 +199,7 @@ export default function AddContact(): JSX.Element {
               <p className="text-red-600 text-xs m-2">{errors.zip?.message}</p>
             )}
           </div>
-          <div className="p-2">
-            <label>Phone Number</label>
-            <input
-              {...register("phone")}
-              value={formValues.phone}
-              onChange={onInputChange}
-              name="phone"
-              type="text"
-            />
-            {errors.phone && (
-              <p className="text-red-600 text-xs m-2">
-                {errors.phone?.message}
-              </p>
-            )}
-          </div>
+          
         </form>
       </div>
     </div>
