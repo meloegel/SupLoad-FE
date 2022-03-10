@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import Contact from "../common/Contact";
 import contactSchema from "../validation/ContactSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFetch from "../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const initialFormValues = {
   firstname: "",
@@ -17,6 +17,7 @@ const initialFormValues = {
 };
 
 export default function AddContact(): JSX.Element {
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState(initialFormValues);
   const [request, data, statusCode] = useFetch<any>();
 
@@ -65,8 +66,9 @@ export default function AddContact(): JSX.Element {
     }
     if (data) {
       console.log("Success");
+      navigate("/home")
     }
-  }, [data, statusCode]);
+  }, [data, statusCode, navigate]);
 
   return (
     <div>
