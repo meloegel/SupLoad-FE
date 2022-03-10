@@ -12,12 +12,12 @@ const initialFormValues = {
   street: "",
   city: "",
   state: "",
-  zip: 0,
+  zip: "",
   phone: "",
 };
 
 export default function AddContact(): JSX.Element {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [request, data, statusCode] = useFetch<any>();
 
@@ -66,7 +66,7 @@ export default function AddContact(): JSX.Element {
     }
     if (data) {
       console.log("Success");
-      navigate("/home")
+      navigate("/home");
     }
   }, [data, statusCode, navigate]);
 
@@ -74,73 +74,78 @@ export default function AddContact(): JSX.Element {
     <div>
       <h2>Add Contact</h2>
       <div>
-        <div className="w-2/6 m-auto text-xl bg-white p-4">
+        <div className="w-1/2 m-auto text-xl bg-white p-4">
           <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="text-center text-2xl">Contact</h2>
-            <div className="p-2">
-              <label>First Name</label>
-              <input
-                {...register("firstname")}
-                value={formValues.firstname}
-                onChange={onInputChange}
-                name="firstname"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.firstname && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.firstname?.message}
-                </p>
-              )}
+            <h2 className="text-center text-2xl">Contact</h2>
+            <div className="flex">
+              <div className="p-2">
+                <label>First Name</label>
+                <input
+                  {...register("firstname")}
+                  value={formValues.firstname}
+                  onChange={onInputChange}
+                  name="firstname"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.firstname && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.firstname?.message}
+                  </p>
+                )}
+              </div>
+              <div className="p-2">
+                <label>Last Name</label>
+                <input
+                  {...register("lastname")}
+                  value={formValues.lastname}
+                  onChange={onInputChange}
+                  name="lastname"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.lastname && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.lastname?.message}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="p-2">
-              <label>Last Name</label>
-              <input
-                {...register("lastname")}
-                value={formValues.lastname}
-                onChange={onInputChange}
-                name="lastname"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.lastname && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.lastname?.message}
-                </p>
-              )}
+            <div className="flex">
+              <div className="p-2">
+                <label>Email</label>
+                <input
+                  {...register("email")}
+                  value={formValues.email}
+                  onChange={onInputChange}
+                  name="email"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.email && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.email?.message}
+                  </p>
+                )}
+              </div>
+              <div className="p-2">
+                <label>Phone Number</label>
+                <input
+                  {...register("phone")}
+                  value={formValues.phone}
+                  onChange={onInputChange}
+                  name="phone"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.phone && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.phone?.message}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="p-2">
-              <label>Email</label>
-              <input
-                {...register("email")}
-                value={formValues.email}
-                onChange={onInputChange}
-                name="email"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.email && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.email?.message}
-                </p>
-              )}
-            </div>
-            <div className="p-2">
-              <label>Phone Number</label>
-              <input
-                {...register("phone")}
-                value={formValues.phone}
-                onChange={onInputChange}
-                name="phone"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.phone && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.phone?.message}
-                </p>
-              )}
-            </div>
+
             <div className="p-2">
               <label>Street</label>
               <input
@@ -149,7 +154,7 @@ export default function AddContact(): JSX.Element {
                 onChange={onInputChange}
                 name="street"
                 type="text"
-                className="border-2 rounded p-1 mx-2"
+                className="border-2 rounded p-1 mx-2 "
               />
               {errors.street && (
                 <p className="text-red-600 text-xs m-2">
