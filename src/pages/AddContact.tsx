@@ -145,7 +145,6 @@ export default function AddContact(): JSX.Element {
                 )}
               </div>
             </div>
-
             <div className="p-2">
               <label>Street</label>
               <input
