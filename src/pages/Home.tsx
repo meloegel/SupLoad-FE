@@ -1,8 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Contact from "../common/Contact";
+import useFetch from "../hooks/useFetch";
 
 export default function Home(): JSX.Element {
   const [contacts, setContacts] = useState([] as any[]);
+  const [request, data, statusCode] = useFetch<any>();
+
+  useEffect(() => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    request(`http://localhost:8080/contacts`, {
+      method: "GET",
+      headers: headers,
+    });
+    if (data) {
+      setContacts(data);
+    }
+    if (statusCode === 400) {
+      console.log("Oh No!");
+    }
+  }, [request, data, statusCode]);
+
   return (
     <div>
       <h1 className="p-4">Home</h1>
