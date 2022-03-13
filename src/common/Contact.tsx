@@ -1,6 +1,6 @@
 export default function Contact(props: ContactType): JSX.Element {
   return (
-    <div className="w-2/6 m-auto text-xl bg-white p-4">
+    <div className="w-2/6 mx-auto my-2 text-xl bg-white p-4">
       <h2 className="text-center text-2xl">Contact</h2>
       <div className="flex">
         <h3>Name: {props.firstname}</h3>

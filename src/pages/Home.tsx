@@ -38,6 +38,7 @@ export default function Home(): JSX.Element {
       {contacts !== []
         ? contacts.map((contact, key): any => (
             <Contact
+              key={key}
               firstname={contact.firstname}
               lastname={contact.lastname}
               email={contact.email}
