@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Contact from "../common/Contact";
 import useFetch from "../hooks/useFetch";
 
 export default function Home(): JSX.Element {
+  const navigate = useNavigate();
   const [contacts, setContacts] = useState([] as any[]);
   const [request, data, statusCode] = useFetch<any>();
 
@@ -24,6 +26,13 @@ export default function Home(): JSX.Element {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          navigate("/add-contact");
+        }}
+      >
+        Add Contact
+      </button>
       <h1 className="p-4">Home</h1>
       <Contact
         firstname="Firstname"
