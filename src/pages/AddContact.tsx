@@ -4,6 +4,7 @@ import contactSchema from "../validation/ContactSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import Button from "../common/Button";
 
 const initialFormValues = {
   firstname: "",
@@ -209,6 +210,7 @@ export default function AddContact(): JSX.Element {
                 </p>
               )}
             </div>
+            <Button text="Add Contact" className="" onClick={() => {}} />
           </form>
         </div>
       </div>
