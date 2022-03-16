@@ -146,71 +146,82 @@ export default function AddContact(): JSX.Element {
                 )}
               </div>
             </div>
-            <div className="p-2">
-              <label>Street</label>
-              <input
-                {...register("street")}
-                value={formValues.street}
-                onChange={onInputChange}
-                name="street"
-                type="text"
-                className="border-2 rounded p-1 mx-2 "
-              />
-              {errors.street && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.street?.message}
-                </p>
-              )}
+            <div className="flex">
+              <div className="p-2">
+                <label>Street</label>
+                <input
+                  {...register("street")}
+                  value={formValues.street}
+                  onChange={onInputChange}
+                  name="street"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2 "
+                />
+                {errors.street && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.street?.message}
+                  </p>
+                )}
+              </div>
+              <div className="p-2">
+                <label>City</label>
+                <input
+                  {...register("city")}
+                  value={formValues.city}
+                  onChange={onInputChange}
+                  name="city"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.city && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.city?.message}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="p-2">
-              <label>City</label>
-              <input
-                {...register("city")}
-                value={formValues.city}
-                onChange={onInputChange}
-                name="city"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.city && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.city?.message}
-                </p>
-              )}
+            <div className="flex">
+              <div className="p-2">
+                <label>State</label>
+                <input
+                  {...register("state")}
+                  value={formValues.state}
+                  onChange={onInputChange}
+                  name="state"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.state && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.state?.message}
+                  </p>
+                )}
+              </div>
+              <div className="p-2">
+                <label>Zip</label>
+                <input
+                  {...register("zip")}
+                  value={formValues.zip}
+                  onChange={onInputChange}
+                  name="zip"
+                  type="text"
+                  className="border-2 rounded p-1 mx-2"
+                />
+                {errors.zip && (
+                  <p className="text-red-600 text-xs m-2">
+                    {errors.zip?.message}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="p-2">
-              <label>State</label>
-              <input
-                {...register("state")}
-                value={formValues.state}
-                onChange={onInputChange}
-                name="state"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.state && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.state?.message}
-                </p>
-              )}
-            </div>
-            <div className="p-2">
-              <label>Zip</label>
-              <input
-                {...register("zip")}
-                value={formValues.zip}
-                onChange={onInputChange}
-                name="zip"
-                type="text"
-                className="border-2 rounded p-1 mx-2"
-              />
-              {errors.zip && (
-                <p className="text-red-600 text-xs m-2">
-                  {errors.zip?.message}
-                </p>
-              )}
-            </div>
-            <Button text="Add Contact" className="" onClick={() => {}} />
+            <Button text="Add Contact" className="my-4" onClick={() => {}} />
+            <Button
+              text="Home"
+              className=""
+              onClick={() => {
+                navigate("/home");
+              }}
+            />
           </form>
         </div>
       </div>
