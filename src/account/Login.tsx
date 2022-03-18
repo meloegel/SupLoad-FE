@@ -15,7 +15,7 @@ export default function Login(): JSX.Element {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [request, data, statusCode] = useFetch<any>();
-  const [hideError, setHideError] = useState(false)
+  const [hideError, setHideError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -55,59 +55,65 @@ export default function Login(): JSX.Element {
       localStorage.setItem("token", `Bearer ${data}`);
       navigate("/home");
     }
-    if (statusCode === 400){
-      setHideError(true)
+    if (statusCode === 400) {
+      setHideError(true);
     }
   }, [data, navigate, formValues, statusCode]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 m-auto p-4">
-      <h1>Login</h1>
-      <div>
-        <div className="p-2">
-          <label>Username</label>
-          <input
-            {...register("username")}
-            value={formValues.username}
-            onChange={onInputChange}
-            name="username"
-            type="text"
-          />
-          {errors.username && (
-            <p className="text-red-600 text-xs m-2">
-              {errors.username?.message}
-            </p>
-          )}
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 m-auto my-8 p-4 bg-gray-400 text-center">
+        <h1 className="text-lg">Login</h1>
+        <div>
+          <div className="p-2">
+            <label className="px-2">Username</label>
+            <input
+              {...register("username")}
+              value={formValues.username}
+              onChange={onInputChange}
+              name="username"
+              type="text"
+            />
+            {errors.username && (
+              <p className="text-red-600 text-xs m-2">
+                {errors.username?.message}
+              </p>
+            )}
+          </div>
+          <div className="p-2">
+            <label className="px-2">Password</label>
+            <input
+              {...register("password")}
+              value={formValues.password}
+              onChange={onInputChange}
+              name="password"
+              type="text"
+            />
+            {errors.password && (
+              <p className="text-red-600 text-xs m-2">
+                {errors.password?.message}
+              </p>
+            )}
+          </div>
+          <p
+            className={`text-red-600 text-xs mx-4 ${
+              !hideError ? "hidden" : ""
+            } `}
+          >
+            Username and password did not match
+          </p>
         </div>
-        <div className="p-2">
-          <label>Password</label>
-          <input
-            {...register("password")}
-            value={formValues.password}
-            onChange={onInputChange}
-            name="password"
-            type="text"
+        <div className="flex justify-evenly p-6">
+          <Button text="Login" className="text-white" onClick={() => {}} />
+          <Button
+            text="Register"
+            className="text-white"
+            onClick={() => {
+              navigate("/register");
+            }}
           />
-          {errors.password && (
-            <p className="text-red-600 text-xs m-2">
-              {errors.password?.message}
-            </p>
-          )}
         </div>
-        <p className={`text-red-600 text-xs mx-4 ${!hideError ? "hidden" : "" } `}>
-          Username and password did not match
-        </p>
-      </div>
-      <div className="flex justify-evenly p-6">
-        <Button text="Login" className="text-white" onClick={() => {}} />
-        <Button
-          text="Register"
-          className="text-white"
-          onClick={() => {
-            navigate("/register");
-          }}
-        />
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
