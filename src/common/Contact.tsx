@@ -1,6 +1,6 @@
 export default function Contact(props: ContactType): JSX.Element {
   return (
-    <div className="w-5/12 mx-auto m-2 text-xl bg-white p-4">
+    <div className="w-5/12 mx-auto m-2 text-xl bg-gray-400 p-4">
       <h2 className="text-center text-2xl">Contact</h2>
       <table className="m-auto">
         <tr>

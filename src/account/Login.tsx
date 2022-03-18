@@ -62,7 +62,10 @@ export default function Login(): JSX.Element {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 m-auto my-8 p-4 bg-gray-400 text-center">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-1/3 m-auto my-8 p-4 bg-gray-400 text-center"
+      >
         <h1 className="text-lg">Login</h1>
         <div>
           <div className="p-2">

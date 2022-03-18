@@ -82,7 +82,9 @@ export default function AddContact(): JSX.Element {
               <tr>
                 <td>
                   <div className="p-2">
-                    <label className="inline-block text-right w-24">First Name</label>
+                    <label className="inline-block text-right w-24">
+                      First Name
+                    </label>
                     <input
                       {...register("firstname")}
                       value={formValues.firstname}
@@ -120,7 +122,9 @@ export default function AddContact(): JSX.Element {
               <tr>
                 <td>
                   <div className="p-2">
-                    <label className="inline-block text-right w-24">Email</label>
+                    <label className="inline-block text-right w-24">
+                      Email
+                    </label>
                     <input
                       {...register("email")}
                       value={formValues.email}
@@ -138,7 +142,9 @@ export default function AddContact(): JSX.Element {
                 </td>
                 <td>
                   <div className="p-2">
-                    <label className="inline-block text-right w-24">Phone</label>
+                    <label className="inline-block text-right w-24">
+                      Phone
+                    </label>
                     <input
                       {...register("phone")}
                       value={formValues.phone}
@@ -158,7 +164,9 @@ export default function AddContact(): JSX.Element {
               <tr>
                 <td>
                   <div className="p-2">
-                    <label className="inline-block text-right w-24">Street</label>
+                    <label className="inline-block text-right w-24">
+                      Street
+                    </label>
                     <input
                       {...register("street")}
                       value={formValues.street}
@@ -196,7 +204,9 @@ export default function AddContact(): JSX.Element {
               <tr>
                 <td>
                   <div className="p-2">
-                    <label className="inline-block text-right w-24">State</label>
+                    <label className="inline-block text-right w-24">
+                      State
+                    </label>
                     <input
                       {...register("state")}
                       value={formValues.state}
