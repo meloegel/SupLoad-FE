@@ -67,45 +67,49 @@ export default function Login(): JSX.Element {
         className="w-1/3 m-auto my-8 p-4 bg-gray-400 text-center"
       >
         <h1 className="text-lg">Login</h1>
-        <div>
-          <div className="p-2">
-            <label className="px-2">Username</label>
-            <input
-              {...register("username")}
-              value={formValues.username}
-              onChange={onInputChange}
-              name="username"
-              type="text"
-            />
-            {errors.username && (
-              <p className="text-red-600 text-xs m-2">
-                {errors.username?.message}
-              </p>
-            )}
-          </div>
-          <div className="p-2">
-            <label className="px-2">Password</label>
-            <input
-              {...register("password")}
-              value={formValues.password}
-              onChange={onInputChange}
-              name="password"
-              type="text"
-            />
-            {errors.password && (
-              <p className="text-red-600 text-xs m-2">
-                {errors.password?.message}
-              </p>
-            )}
-          </div>
-          <p
-            className={`text-red-600 text-xs mx-4 ${
-              !hideError ? "hidden" : ""
-            } `}
-          >
-            Username and password did not match
-          </p>
-        </div>
+        <table className="m-auto">
+          <tr>
+            <td className="p-2">
+              <label className="inline-block text-right w-24">Username</label>
+              <input
+                {...register("username")}
+                value={formValues.username}
+                onChange={onInputChange}
+                name="username"
+                type="text"
+                className="rounded p-1 mx-2"
+              />
+              {errors.username && (
+                <p className="text-red-600 text-xs m-2">
+                  {errors.username?.message}
+                </p>
+              )}
+            </td>
+          </tr>
+          <tr>
+            <td className="p-2">
+              <label className="inline-block text-right w-24">Password</label>
+              <input
+                {...register("password")}
+                value={formValues.password}
+                onChange={onInputChange}
+                name="password"
+                type="text"
+                className="rounded p-1 mx-2"
+              />
+              {errors.password && (
+                <p className="text-red-600 text-xs m-2">
+                  {errors.password?.message}
+                </p>
+              )}
+            </td>
+          </tr>
+        </table>
+        <p
+          className={`text-red-600 text-xs mx-4 ${!hideError ? "hidden" : ""} `}
+        >
+          Username and password did not match
+        </p>
         <div className="flex justify-evenly p-6">
           <Button text="Login" className="text-white" onClick={() => {}} />
           <Button
