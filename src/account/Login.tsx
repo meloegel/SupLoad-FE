@@ -64,13 +64,15 @@ export default function Login(): JSX.Element {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-1/3 m-auto my-8 p-4 bg-gray-400 text-center"
+        className="w-1/3 m-auto my-8 p-4 text-center"
       >
-        <h1 className="text-lg">Login</h1>
+        <h1 className="text-2xl text-white my-2">Login</h1>
         <table className="m-auto">
           <tr>
             <td className="p-2">
-              <label className="inline-block text-right w-24">Username</label>
+              <label className="inline-block text-right w-24 text-white">
+                Username
+              </label>
               <input
                 {...register("username")}
                 value={formValues.username}
@@ -88,7 +90,9 @@ export default function Login(): JSX.Element {
           </tr>
           <tr>
             <td className="p-2">
-              <label className="inline-block text-right w-24">Password</label>
+              <label className="inline-block text-right w-24 text-white">
+                Password
+              </label>
               <input
                 {...register("password")}
                 value={formValues.password}
