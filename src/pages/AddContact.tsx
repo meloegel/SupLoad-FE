@@ -91,7 +91,7 @@ export default function AddContact(): JSX.Element {
                       onChange={onInputChange}
                       name="firstname"
                       type="text"
-                      className="border-2 rounded p-1 mx-2"
+                      className="border-2 rounded p-1     "
                     />
                     {errors.firstname && (
                       <p className="text-red-600 text-xs m-2">

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../common/Button";
 import Contact from "../common/Contact";
 import useFetch from "../hooks/useFetch";
 
@@ -25,15 +26,17 @@ export default function Home(): JSX.Element {
   }, [request, data, statusCode]);
 
   return (
-    <div>
-      <button
+    <div className="">
+      <div className="text-center">
+      <h1 className="p-4 text-white text-4xl">Home</h1>
+      <Button
+        className="text-white"
+        text="Add Contact"
         onClick={() => {
           navigate("/add-contact");
         }}
-      >
-        Add Contact
-      </button>
-      <h1 className="p-4">Home</h1>
+      />
+    </div>
       <Contact
         firstname="Firstname"
         lastname="Lastname"
