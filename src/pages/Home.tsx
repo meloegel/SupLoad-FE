@@ -28,15 +28,15 @@ export default function Home(): JSX.Element {
   return (
     <div className="">
       <div className="text-center">
-      <h1 className="p-4 text-white text-4xl">Home</h1>
-      <Button
-        className="text-white"
-        text="Add Contact"
-        onClick={() => {
-          navigate("/add-contact");
-        }}
-      />
-    </div>
+        <h1 className="p-4 text-white text-4xl">Home</h1>
+        <Button
+          className="text-white"
+          text="Add Contact"
+          onClick={() => {
+            navigate("/add-contact");
+          }}
+        />
+      </div>
       <Contact
         firstname="Firstname"
         lastname="Lastname"

@@ -73,7 +73,16 @@ export default function AddContact(): JSX.Element {
 
   return (
     <div>
-      <h2>Add Contact</h2>
+      <div className="text-center">
+        <h2 className="p-4 text-white text-4xl">Add Contact</h2>
+        <Button
+          text="Home"
+          className="text-white mb-2"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
+      </div>
       <div>
         <div className="w-1/2 m-auto text-xl bg-white p-4">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -243,13 +252,6 @@ export default function AddContact(): JSX.Element {
               </tr>
             </table>
             <Button text="Add Contact" className="my-4" onClick={() => {}} />
-            <Button
-              text="Home"
-              className=""
-              onClick={() => {
-                navigate("/home");
-              }}
-            />
           </form>
         </div>
       </div>
