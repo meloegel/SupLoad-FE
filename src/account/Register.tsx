@@ -64,11 +64,11 @@ export default function Register(): JSX.Element {
       onSubmit={handleSubmit(onSubmit)}
       className="w-1/3 m-auto my-8 p-4 text-center"
     >
-      <h1 className="text-2xl my-2 text-white">Register</h1>
+      <h1 className="text-2xl my-2 text-slate-300">Register</h1>
       <table className="m-auto">
         <tr>
           <td className="p-2">
-            <label className="inline-block text-right w-24 text-white">Username</label>
+            <label className="inline-block text-right w-24 text-slate-300">Username</label>
             <input
               {...register("username")}
              className="rounded p-1 mx-2"
