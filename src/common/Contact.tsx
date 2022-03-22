@@ -5,34 +5,34 @@ export default function Contact(props: ContactType): JSX.Element {
       <table className="m-auto">
         <tr>
           <td>
-            <h3 className="px-4 py-1">First Name: {props.firstname}</h3>
+            <h3 className="px-4 py-1 mx-2">First Name: {props.firstname}</h3>
           </td>
           <td>
-            <h3 className="px-4 py-1">Last Name: {props.lastname}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 className="px-4 py-1">Email: {props.email}</h3>
-          </td>
-          <td>
-            <h3 className="px-4 py-1">Phone: {props.phone}</h3>
+            <h3 className="px-4 py-1 mx-2">Last Name: {props.lastname}</h3>
           </td>
         </tr>
         <tr>
           <td>
-            <h4 className="px-4 py-1">Street: {props.street}</h4>
+            <h3 className="px-4 py-1 mx-2">Email: {props.email}</h3>
           </td>
           <td>
-            <h4 className="px-4 py-1">City: {props.city}</h4>
+            <h3 className="px-4 py-1 mx-2">Phone: {props.phone}</h3>
           </td>
         </tr>
         <tr>
           <td>
-            <h4 className="px-4 py-1">State: {props.state}</h4>
+            <h4 className="px-4 py-1 mx-2">Street: {props.street}</h4>
           </td>
           <td>
-            <h4 className="px-4 py-1">Zip: {props.zip}</h4>
+            <h4 className="px-4 py-1 mx-2">City: {props.city}</h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4 className="px-4 py-1 mx-2">State: {props.state}</h4>
+          </td>
+          <td>
+            <h4 className="px-4 py-1 mx-2">Zip: {props.zip}</h4>
           </td>
         </tr>
       </table>
