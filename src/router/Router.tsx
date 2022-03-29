@@ -4,6 +4,7 @@ import Register from "../account/Register";
 import Header from "../common/Header";
 import AddContact from "../pages/AddContact";
 import Home from "../pages/Home";
+import UploadContact from "../pages/UploadContact";
 
 export default function Router(): JSX.Element {
   return (
@@ -14,6 +15,7 @@ export default function Router(): JSX.Element {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/add-contact" element={<AddContact />} />
+        <Route path="/upload-contact" element={<UploadContact />} />
       </Routes>
     </BrowserRouter>
   );
