@@ -62,17 +62,19 @@ export default function UploadContact(): JSX.Element {
   ));
 
   const onSubmit = () => {
-    const body = {
-      contact: document,
-    };
+    let formData = new FormData();
+    formData.append("contact", JSON.stringify(document));
+ 
     const headers = {
-      "Content-Type": "multipart/form-data",
+      "Content-Type":
+        "multipart/form-data; boundary=----WebKitFormBoundaryQ0pBuvRC1EzDAQWT````",
     };
     request(`http://localhost:8080/upload/contact`, {
       method: "POST",
-      body: JSON.stringify(body),
-      // headers: headers,
+      body: formData,
+      headers: headers,
     });
+    console.log(formData)
   };
 
   return (
@@ -91,7 +93,6 @@ export default function UploadContact(): JSX.Element {
         </div>
 
         <div>{files}</div>
-      
 
         <Button text="Submit" className="text-white" onClick={onSubmit} />
       </form>

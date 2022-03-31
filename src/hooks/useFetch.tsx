@@ -3,7 +3,7 @@ import useMountedState from "./useMountedState";
 
 type Options = {
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-  body?: BodyInit;
+  body?: BodyInit | null | undefined;
   headers?: Headers;
 };
 
