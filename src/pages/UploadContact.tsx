@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useForm } from "react-hook-form";
+import Button from "../common/Button";
 import useFetch from "../hooks/useFetch";
 import contactUploadSchema from "../validation/ContactUploadSchema";
 
@@ -49,7 +50,7 @@ export default function UploadContact(): JSX.Element {
   //     // }
   //   };
   let files = document.map((file: File, index: number) => (
-    <li className="text-sm" key={index}>
+    <div className="text-sm" key={index}>
       {file.name} - {convertBytesToMb(file.size)} MB -{" "}
       <p
         className="underline inline cursor-pointer"
@@ -57,7 +58,7 @@ export default function UploadContact(): JSX.Element {
       >
         Remove File
       </p>
-    </li>
+    </div>
   ));
 
   const onSubmit = () => {
@@ -70,13 +71,13 @@ export default function UploadContact(): JSX.Element {
     request(`http://localhost:8080/upload/contact`, {
       method: "POST",
       body: JSON.stringify(body),
-      headers: headers,
+      // headers: headers,
     });
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 m-auto">
         <div
           {...getRootProps({
             className:
@@ -88,10 +89,11 @@ export default function UploadContact(): JSX.Element {
           <br />
           <p>click to select files</p>
         </div>
-        <aside className="text-sm">
-          <p>{files}</p>
-        </aside>
-        <button onClick={onSubmit}>Submit</button>
+
+        <div>{files}</div>
+      
+
+        <Button text="Submit" className="text-white" onClick={onSubmit} />
       </form>
     </div>
   );
