@@ -27,7 +27,7 @@ export default function UploadContact(): JSX.Element {
     const newFileArray = file.concat(document);
     // const totalFileSizes = getTotalSize(newFileArray);
     if (newFileArray.length !== 0) {
-      setDocument(file);
+      setDocument(newFileArray);
     }
   };
 
@@ -63,8 +63,10 @@ export default function UploadContact(): JSX.Element {
 
   const onSubmit = () => {
     let formData = new FormData();
-    formData.append("contact", JSON.stringify(document));
- 
+    document.forEach((doc) => {
+      formData.append("contact", doc);
+    });
+
     const headers = {
       "Content-Type":
         "multipart/form-data; boundary=----WebKitFormBoundaryQ0pBuvRC1EzDAQWT````",
@@ -74,7 +76,7 @@ export default function UploadContact(): JSX.Element {
       body: formData,
       headers: headers,
     });
-    console.log(formData)
+    console.log(formData);
   };
 
   return (
