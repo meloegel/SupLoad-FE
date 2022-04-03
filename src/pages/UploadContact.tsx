@@ -6,6 +6,7 @@ import Button from "../common/Button";
 import useFetch from "../hooks/useFetch";
 import contactUploadSchema from "../validation/ContactUploadSchema";
 
+
 export default function UploadContact(): JSX.Element {
   const [document, setDocument] = useState<File[]>([]);
   const [request, data, statusCode] = useFetch<any>();
@@ -62,11 +63,13 @@ export default function UploadContact(): JSX.Element {
   ));
 
   const onSubmit = () => {
+    
     let formData = new FormData();
+
     document.forEach((doc) => {
       formData.append("contact", doc);
     });
-
+    formData.append("test", "foo");
     const headers = {
       "Content-Type":
         "multipart/form-data; boundary=----WebKitFormBoundaryQ0pBuvRC1EzDAQWT````",
@@ -76,7 +79,10 @@ export default function UploadContact(): JSX.Element {
       body: formData,
       headers: headers,
     });
-    console.log(formData);
+    formData.forEach((thing) => {
+      console.log(thing);
+    });
+    console.log(formData.keys());
   };
 
   return (
