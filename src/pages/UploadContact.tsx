@@ -2,17 +2,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Button from "../common/Button";
 import useFetch from "../hooks/useFetch";
 import contactUploadSchema from "../validation/ContactUploadSchema";
 
 
 export default function UploadContact(): JSX.Element {
+  const navigate = useNavigate();
   const [document, setDocument] = useState<File[]>([]);
   const [request, data, statusCode] = useFetch<any>();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     mode: "all",
@@ -29,6 +32,7 @@ export default function UploadContact(): JSX.Element {
     // const totalFileSizes = getTotalSize(newFileArray);
     if (newFileArray.length !== 0) {
       setDocument(newFileArray);
+      setValue("contact", newFileArray, {shouldValidate: true});
     }
   };
 
@@ -82,7 +86,7 @@ export default function UploadContact(): JSX.Element {
     formData.forEach((thing) => {
       console.log(thing);
     });
-    console.log(formData.keys());
+    console.log(formData);
   };
 
   return (
@@ -103,6 +107,14 @@ export default function UploadContact(): JSX.Element {
         <div>{files}</div>
 
         <Button text="Submit" className="text-white" onClick={onSubmit} />
+    
+        <Button
+          text="Home"
+          className="text-slate-300 mb-2"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
       </form>
     </div>
   );
