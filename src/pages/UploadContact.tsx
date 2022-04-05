@@ -7,7 +7,6 @@ import Button from "../common/Button";
 import useFetch from "../hooks/useFetch";
 import contactUploadSchema from "../validation/ContactUploadSchema";
 
-
 export default function UploadContact(): JSX.Element {
   const navigate = useNavigate();
   const [document, setDocument] = useState<File[]>([]);
@@ -32,7 +31,7 @@ export default function UploadContact(): JSX.Element {
     // const totalFileSizes = getTotalSize(newFileArray);
     if (newFileArray.length !== 0) {
       setDocument(newFileArray);
-      setValue("contact", newFileArray, {shouldValidate: true});
+      setValue("contact", newFileArray, { shouldValidate: true });
     }
   };
 
@@ -67,17 +66,17 @@ export default function UploadContact(): JSX.Element {
   ));
 
   const onSubmit = () => {
-    
     let formData = new FormData();
-
+    formData.append("foo", "foo");
     document.forEach((doc) => {
-      formData.append("contact", doc);
+      formData.append("bar", doc);
     });
-    formData.append("test", "foo");
+
     const headers = {
       "Content-Type":
         "multipart/form-data; boundary=----WebKitFormBoundaryQ0pBuvRC1EzDAQWT````",
     };
+
     request(`http://localhost:8080/upload/contact`, {
       method: "POST",
       body: formData,
@@ -107,7 +106,7 @@ export default function UploadContact(): JSX.Element {
         <div>{files}</div>
 
         <Button text="Submit" className="text-white" onClick={onSubmit} />
-    
+
         <Button
           text="Home"
           className="text-slate-300 mb-2"
