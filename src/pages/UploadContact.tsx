@@ -90,6 +90,16 @@ export default function UploadContact(): JSX.Element {
 
   return (
     <div>
+      <div className="text-center">
+        <h2 className="p-4 text-slate-300 text-4xl">Upload Contact</h2>
+        <Button
+          text="Home"
+          className="text-slate-300 mb-2"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 m-auto">
         <div
           {...getRootProps({
@@ -102,18 +112,10 @@ export default function UploadContact(): JSX.Element {
           <br />
           <p>click to select files</p>
         </div>
-
         <div>{files}</div>
-
-        <Button text="Submit" className="text-white" onClick={onSubmit} />
-
-        <Button
-          text="Home"
-          className="text-slate-300 mb-2"
-          onClick={() => {
-            navigate("/home");
-          }}
-        />
+        <div className="text-center p-2">
+          <Button text="Submit" className="text-slate-300" onClick={onSubmit} />
+        </div>
       </form>
     </div>
   );
