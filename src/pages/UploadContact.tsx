@@ -104,12 +104,12 @@ export default function UploadContact(): JSX.Element {
         <div
           {...getRootProps({
             className:
-              "flex flex-col h-40 w-5/5 border-2 border-dashed border-gray-400 rounded-md bg-gray-100 items-center justify-center ",
+              "flex flex-col h-40 w-5/5 border-2 border-dashed border-gray-400 rounded-md bg-slate-300 items-center justify-center ",
           })}
         >
           <input {...getInputProps()} />
-          <p>Drag and drop files here or</p>
-          <br />
+          <p>Drag and drop files here</p>
+          <p>or</p>
           <p>click to select files</p>
         </div>
         <div>{files}</div>
