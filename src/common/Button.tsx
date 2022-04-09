@@ -15,7 +15,7 @@ export type ButtonType = {
       <button
         onClick={onClick}
         disabled={disabled}
-        className={`disabled:opacity-50 border rounded-2xl px-5 py-1 ${className}`}
+        className={`disabled:opacity-50 border-2 rounded-2xl px-5 py-1 ${className}`}
       >
         {text}
       </button>
