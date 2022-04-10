@@ -1,3 +1,14 @@
+type ContactType = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: number;
+  phone: string;
+};
+
 export default function Contact(props: ContactType): JSX.Element {
   return (
     <div className="w-5/12 mx-auto m-2 text-xl bg-slate-300 p-4">
@@ -39,14 +50,3 @@ export default function Contact(props: ContactType): JSX.Element {
     </div>
   );
 }
-
-type ContactType = {
-  firstname: string;
-  lastname: string;
-  email: string;
-  street: string;
-  city: string;
-  state: string;
-  zip: number;
-  phone: string;
-};
