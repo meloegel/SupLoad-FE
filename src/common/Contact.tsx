@@ -11,9 +11,9 @@ type ContactType = {
 
 export default function Contact(props: ContactType): JSX.Element {
   return (
-    <div className="w-5/12 mx-auto m-2 text-xl bg-slate-300 p-4">
-      <h2 className="text-center text-2xl">Contact</h2>
-      <table className="m-auto">
+    <div className="w-5/12 mx-auto m-2 bg-slate-300 border-2 p-4">
+      <h2 className="text-center text-3xl">Contact</h2>
+      <table className="m-auto text-2xl">
         <tr>
           <td>
             <h3 className="px-4 py-1 mx-2">First Name: {props.firstname}</h3>
