@@ -77,12 +77,13 @@ export default function AddContact(): JSX.Element {
         <h2 className="p-4 text-slate-300 text-4xl">Add Contact</h2>
         <Button
           text="Home"
-          className="text-slate-300 mb-2"
+          className="text-slate-300"
           onClick={() => {
             navigate("/home");
           }}
         />
       </div>
+      <hr className="border-bottom-2 w-1/4 m-auto my-4 border-white"/>
       <div>
         <div className="w-1/2 m-auto text-xl bg-slate-300 p-4">
           <form onSubmit={handleSubmit(onSubmit)}>
