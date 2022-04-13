@@ -43,6 +43,13 @@ export default function Home(): JSX.Element {
             navigate("/upload-contact");
           }}
         />
+        <Button
+          className="text-slate-200 ml-2"
+          text="My Contact"
+          onClick={() => {
+            navigate("/my-contact");
+          }}
+        />
       </div>
       <hr className="border-bottom-2 w-1/4 m-auto my-4 border-white"/>
       <Contact
