@@ -22,7 +22,7 @@ export default function MyContact(): JSX.Element {
 
   useEffect(() => {
     if (data) {
-      setUserContact(data); 
+      setUserContact(data);
       console.log(data);
     }
     if (statusCode === 400) {
@@ -32,13 +32,16 @@ export default function MyContact(): JSX.Element {
 
   return (
     <div>
-      <Button
-        className="text-slate-200 ml-2"
-        text="Home"
-        onClick={() => {
-          navigate("/home");
-        }}
-      />
+      <div className="text-center">
+        <Button
+          className="text-slate-200 ml-2"
+          text="Home"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
+      </div>
+      <hr className="border-bottom-2 w-1/4 m-auto my-4 border-white" />
       {userContact !== undefined ? (
         <Contact
           firstname={userContact.firstname}
