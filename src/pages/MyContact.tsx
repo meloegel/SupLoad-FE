@@ -54,7 +54,18 @@ export default function MyContact(): JSX.Element {
           phone={userContact.phone}
         />
       ) : (
-        <p>You have not published your own contact with username: {username}</p>
+        <div className="text-center">
+          <p>
+            You have not published your own contact with username: {username}
+          </p>
+          <Button
+            className="text-slate-200 ml-2"
+            text="Click here to add contact"
+            onClick={() => {
+              navigate("/add-contact");
+            }}
+          />
+        </div>
       )}
     </div>
   );
