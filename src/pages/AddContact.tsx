@@ -21,6 +21,7 @@ export default function AddContact(): JSX.Element {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [request, data, statusCode] = useFetch<any>();
+  const username = window.localStorage.getItem("username");
 
   const {
     register,
@@ -50,6 +51,7 @@ export default function AddContact(): JSX.Element {
       state: formValues.state,
       zip: formValues.zip,
       phone: formValues.phone,
+      user: username,
     };
     const headers = {
       "Content-Type": "application/json",
