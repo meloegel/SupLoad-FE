@@ -51,7 +51,7 @@ export default function AddContact(): JSX.Element {
       state: formValues.state,
       zip: formValues.zip,
       phone: formValues.phone,
-      user: username,
+      // user: username,
     };
     const headers = {
       "Content-Type": "application/json",

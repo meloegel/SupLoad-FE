@@ -51,7 +51,7 @@ export default function Home(): JSX.Element {
           }}
         />
       </div>
-      <hr className="border-bottom-2 w-1/4 m-auto my-4 border-white"/>
+      <hr className="border-bottom-2 w-1/4 m-auto my-4 border-white" />
       <Contact
         firstname="Firstname"
         lastname="Lastname"
@@ -62,21 +62,23 @@ export default function Home(): JSX.Element {
         zip={12345}
         phone="555-555-5555"
       />
-      {contacts !== []
-        ? contacts.map((contact, key): any => (
-            <Contact
-              key={key}
-              firstname={contact.firstname}
-              lastname={contact.lastname}
-              email={contact.email}
-              street={contact.street}
-              city={contact.city}
-              state={contact.state}
-              zip={contact.zip}
-              phone={contact.phone}
-            />
-          ))
-        : null}
+      {contacts !== [] ? (
+        contacts.map((contact, key): any => (
+          <Contact
+            key={key}
+            firstname={contact.firstname}
+            lastname={contact.lastname}
+            email={contact.email}
+            street={contact.street}
+            city={contact.city}
+            state={contact.state}
+            zip={contact.zip}
+            phone={contact.phone}
+          />
+        ))
+      ) : (
+        <p>Server Down</p>
+      )}
     </div>
   );
 }
