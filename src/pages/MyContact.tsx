@@ -37,7 +37,6 @@ export default function MyContact(): JSX.Element {
     if (data) {
       setUserContact(data);
       setContactId(data.contactid);
-      console.log(data);
     }
     if (statusCode === 400) {
       console.log("Oh No!");
@@ -53,7 +52,6 @@ export default function MyContact(): JSX.Element {
       method: "DELETE",
       headers: headers,
     });
-    console.log("fired");
   };
 
   return (
